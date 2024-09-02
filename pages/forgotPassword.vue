@@ -22,6 +22,8 @@ const supabase = useSupabaseClient<Database>();
 
 const router = useRouter();
 
+const url = useNuxtApp().$config.public.baseUrl;
+
 async function onSubmit() {
 	const result = await validator.value.$validate();
 
@@ -30,9 +32,7 @@ async function onSubmit() {
 
 		const { error, data } =
 			await supabase.auth.resetPasswordForEmail(state.email, {
-				redirectTo: `${
-					useNuxtApp().$config.public.baseUrl
-				}resetPassword`,
+				redirectTo: `${url}resetPassword`,
 			});
 
 		Loading.hide();
@@ -54,6 +54,7 @@ async function onSubmit() {
 
 <template>
 	<div class="">
+		{{ url }}
 		<div class="q-pa-md text-center q-gutter-md">
 			<p class="title">¿Olvidó su contraseña?</p>
 			<div class="sub-title text-grey-7">
