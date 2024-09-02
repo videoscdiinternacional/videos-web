@@ -115,6 +115,7 @@ const profile = inject<Profile>("profile");
 <template>
 	<div>
 		<QPage
+			v-if="profile"
 			class="q-px-lg q-pb-lg"
 			:style="$q.screen.xs ? 'margin-top: -40px' : ''"
 		>

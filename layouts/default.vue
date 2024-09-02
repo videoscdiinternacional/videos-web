@@ -109,6 +109,7 @@ const changePasswordDialog = () => {
 						no-caps
 					/>
 					<q-avatar
+						v-if="profile"
 						color="primary"
 						text-color="white"
 						class="cursor-pointer"

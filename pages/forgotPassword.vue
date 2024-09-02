@@ -30,7 +30,9 @@ async function onSubmit() {
 
 		const { error, data } =
 			await supabase.auth.resetPasswordForEmail(state.email, {
-				redirectTo: "https://cotizador-cubbo.web.app/resetPassword",
+				redirectTo: `${
+					useNuxtApp().$config.public.baseUrl
+				}resetPassword`,
 			});
 
 		Loading.hide();

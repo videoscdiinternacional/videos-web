@@ -16,6 +16,7 @@ export default defineNuxtConfig({
 		"nuxt-quasar-ui",
 		"@nuxtjs/supabase",
 	],
+
 	supabase: {
 		redirectOptions: {
 			login: "/login",
@@ -48,6 +49,11 @@ export default defineNuxtConfig({
 					hideBottomSpace: true,
 				},
 			},
+		},
+	},
+	runtimeConfig: {
+		public: {
+			baseUrl: "",
 		},
 	},
 });
