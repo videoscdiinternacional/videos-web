@@ -54,7 +54,6 @@ async function onSubmit() {
 
 <template>
 	<div class="">
-		{{ url }}
 		<div class="q-pa-md text-center q-gutter-md">
 			<p class="title">¿Olvidó su contraseña?</p>
 			<div class="sub-title text-grey-7">

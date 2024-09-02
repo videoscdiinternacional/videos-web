@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { Database } from "@@/types/database.types.ts";
 import { Notify, Loading } from "quasar";
+import { minLength, helpers } from "@vuelidate/validators";
 
 definePageMeta({
 	layout: "auth",
@@ -19,7 +20,13 @@ const rules = {
 	first_name: { required },
 	last_name: { required },
 	email: { required, email },
-	password: { required },
+	password: {
+		required,
+		minLength: helpers.withMessage(
+			"Debe tener un mínimo de 6 caracteres",
+			minLength(6)
+		),
+	},
 };
 
 const validator = useValidation(rules, state);
