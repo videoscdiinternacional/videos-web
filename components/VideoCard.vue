@@ -14,10 +14,29 @@ interface Props {
 defineProps<Props>();
 
 defineEmits(["filter"]);
+
+const preview = ref(false);
+let timeoutId = "" as any;
+
+const onMouseEnter = () => {
+	timeoutId = setTimeout(() => {
+		preview.value = true;
+	}, 3000);
+};
+
+const onMouseLeave = () => {
+	clearTimeout(timeoutId);
+	preview.value = false;
+};
 </script>
 
 <template>
-	<div v-if="last" class="col-12">
+	<div
+		v-if="last"
+		class="col-12"
+		@mouseenter="onMouseEnter"
+		@mouseleave="onMouseLeave"
+	>
 		<div class="my-card row relative-position">
 			<NuxtLink :href="`/videos/${video.id}`" tabindex="-1">
 				<span class="absolute" aria-hidden="true"></span>
@@ -25,7 +44,13 @@ defineEmits(["filter"]);
 			<div class="col-12 row">
 				<q-img
 					class="col-xs-12 col-md-5"
-					:src="video.thumbnail ? video.thumbnail : '/thumbnail.jpg'"
+					:src="
+						preview && video.preview
+							? video.preview
+							: video.thumbnail
+							? video.thumbnail
+							: '/thumbnail.jpg'
+					"
 					:ratio="16 / 9"
 				/>
 				<div
@@ -71,7 +96,13 @@ defineEmits(["filter"]);
 			<div class="full-height col-12 no-wrap column">
 				<q-img
 					class="col-auto"
-					:src="video.thumbnail ? video.thumbnail : '/thumbnail.jpg'"
+					:src="
+						preview && video.preview
+							? video.preview
+							: video.thumbnail
+							? video.thumbnail
+							: '/thumbnail.jpg'
+					"
 					:ratio="16 / 9"
 				/>
 
