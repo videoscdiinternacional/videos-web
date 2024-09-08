@@ -164,9 +164,6 @@ const deleteDialog = (id: string, name: string) => {
 			.delete()
 			.eq("id", id);
 
-		const { error: error2 } =
-			await supabase.auth.admin.deleteUser(id);
-
 		Loading.hide();
 
 		if (error) {
@@ -174,15 +171,6 @@ const deleteDialog = (id: string, name: string) => {
 				type: "negative",
 				position: "bottom-right",
 				message: error.message,
-			});
-			return;
-		}
-
-		if (error2) {
-			Notify.create({
-				type: "negative",
-				position: "bottom-right",
-				message: error2.message,
 			});
 			return;
 		}
