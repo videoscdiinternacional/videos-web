@@ -25,7 +25,12 @@ defineEmits(["filter"]);
 			border: 1px solid rgba(56, 189, 248, 0.4);`
 		"
 		class="ticket-chip"
-		@click="$emit('filter', ticket)"
+		@click="
+			$emit(
+				'filter',
+				ticket == filter?.toUpperCase() ? '' : ticket
+			)
+		"
 	>
 		{{ ticket }}
 	</QChip>
