@@ -244,7 +244,7 @@ const deleteDialog = (id: string, name: string) => {
 							square
 							style="
 								background: rgba(140, 137, 209, 0.6);
-								color: rgb(185 178 255);
+								color: rgb(185, 178, 255);
 							"
 						>
 							Usuarios
@@ -254,7 +254,7 @@ const deleteDialog = (id: string, name: string) => {
 							square
 							style="
 								background: rgba(249, 197, 154, 0.6);
-								color: rgb(251 176 104);
+								color: rgb(251, 176, 104);
 							"
 						>
 							Videos
@@ -264,7 +264,7 @@ const deleteDialog = (id: string, name: string) => {
 							square
 							style="
 								background: rgba(225, 246, 232, 0.6);
-								color: rgb(140 255 193);
+								color: rgb(140, 255, 193);
 							"
 						>
 							Ver

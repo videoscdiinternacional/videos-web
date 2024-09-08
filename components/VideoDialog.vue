@@ -31,9 +31,9 @@ const rules = {
 	video_id: { required },
 	video_date: { required },
 	title: { required },
-	thumbnail: { required },
+	thumbnail: {},
 	description: {},
-	preview: { required },
+	preview: {},
 	tickets: {},
 	keys: {},
 };
@@ -90,6 +90,21 @@ const onSubmit = async () => {
 function createValue(val: string, done: any) {
 	done(val.toUpperCase());
 }
+
+function getLastLibraryId() {
+	supabase
+		.from("videos")
+		.select("library_id")
+		.order("video_date", { ascending: false })
+		.limit(1)
+		.then(({ data }) => {
+			if (data && data[0]?.library_id) {
+				state.library_id = data[0].library_id;
+			}
+		});
+}
+
+getLastLibraryId();
 </script>
 
 <template>

@@ -8,9 +8,12 @@ type Video = Database["public"]["Tables"]["videos"]["Row"];
 interface Props {
 	video: Video;
 	last?: boolean;
+	filter?: string;
 }
 
 defineProps<Props>();
+
+defineEmits(["filter"]);
 </script>
 
 <template>
@@ -22,7 +25,7 @@ defineProps<Props>();
 			<div class="col-12 row">
 				<q-img
 					class="col-xs-12 col-md-5"
-					:src="video.thumbnail!"
+					:src="video.thumbnail ? video.thumbnail : '/thumbnail.jpg'"
 					:ratio="16 / 9"
 				/>
 				<div
@@ -33,7 +36,11 @@ defineProps<Props>();
 				>
 					<div class="col-12 column no-wrap">
 						<div class="col-auto tickets row no-wrap q-pt-sm scroll">
-							<TicketsList :tickets="video.tickets" />
+							<TicketsList
+								:tickets="video.tickets"
+								:filter="filter"
+								@filter="$emit('filter', $event)"
+							/>
 						</div>
 
 						<div class="col-auto q-pt-sm">
@@ -64,14 +71,18 @@ defineProps<Props>();
 			<div class="full-height col-12 no-wrap column">
 				<q-img
 					class="col-auto"
-					:src="video.thumbnail!"
+					:src="video.thumbnail ? video.thumbnail : '/thumbnail.jpg'"
 					:ratio="16 / 9"
 				/>
 
 				<div class="col row q-pa-xs">
 					<div class="col-12 column no-wrap">
 						<div class="col-auto tickets row no-wrap q-pt-sm scroll">
-							<TicketsList :tickets="video.tickets" />
+							<TicketsList
+								:tickets="video.tickets"
+								:filter="filter"
+								@filter="$emit('filter', $event)"
+							/>
 						</div>
 
 						<div class="col-auto q-pt-sm">

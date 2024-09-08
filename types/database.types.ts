@@ -57,7 +57,7 @@ export type Database = {
 					id: string;
 					keys: string[] | null;
 					library_id: number;
-					preview: string;
+					preview: string | null;
 					thumbnail: string | null;
 					tickets: string[] | null;
 					title: string;
@@ -69,7 +69,7 @@ export type Database = {
 					id?: string;
 					keys?: string[] | null;
 					library_id: number;
-					preview: string;
+					preview?: string | null;
 					thumbnail?: string | null;
 					tickets?: string[] | null;
 					title: string;
@@ -81,7 +81,7 @@ export type Database = {
 					id?: string;
 					keys?: string[] | null;
 					library_id?: number;
-					preview?: string;
+					preview?: string | null;
 					thumbnail?: string | null;
 					tickets?: string[] | null;
 					title?: string;

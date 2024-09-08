@@ -172,6 +172,8 @@ const profile = inject<Profile>("profile");
 					:key="video.video_id"
 					:video="video"
 					:last="video.video_date == lastVideoDate && index == 0"
+					:filter="ticket"
+					@filter="ticket = $event"
 				/>
 				<div
 					v-if="
