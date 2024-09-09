@@ -56,4 +56,9 @@ export default defineNuxtConfig({
 			baseUrl: "",
 		},
 	},
+	app: {
+		head: {
+			title: "CMC - Trading e Inversión",
+		},
+	},
 });
