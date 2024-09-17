@@ -160,7 +160,7 @@ const profile = inject<Profile>("profile");
 						v-model="ticket"
 						class="col-xs-12 col-md-2"
 						debounce="500"
-						placeholder="Buscar por ticket"
+						placeholder="Buscar por ticker"
 					>
 						<template #append>
 							<q-icon name="search" />

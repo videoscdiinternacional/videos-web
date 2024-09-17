@@ -202,7 +202,7 @@ getLastLibraryId();
 						<q-select
 							v-model="state.tickets"
 							class="col-12"
-							label="Tickets"
+							label="Listado de Tickers"
 							use-input
 							use-chips
 							multiple
