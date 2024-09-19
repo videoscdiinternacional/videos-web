@@ -55,7 +55,7 @@ const profile = inject<Profile>("profile");
 			></iframe>
 		</div>
 		<div class="tickets row q-pt-md items-center">
-			<span class="text-subtitle2 text-bold"> Tickets: </span>
+			<span class="text-subtitle2 text-bold"> Tickers: </span>
 			<TicketsList :tickets="data?.tickets" />
 		</div>
 		<div class="row q-pt-md">
