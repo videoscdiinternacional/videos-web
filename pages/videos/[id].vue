@@ -54,7 +54,10 @@ const profile = inject<Profile>("profile");
 				allowfullscreen="true"
 			></iframe>
 		</div>
-		<div class="tickets row q-pt-md items-center">
+		<div
+			v-if="data?.tickets?.length"
+			class="tickets row q-pt-md items-center"
+		>
 			<span class="text-subtitle2 text-bold"> Tickers: </span>
 			<TicketsList :tickets="data?.tickets" />
 		</div>
